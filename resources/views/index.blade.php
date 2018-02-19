@@ -7,7 +7,9 @@
         <div class="col-md-2 col-xs-2 sideDiv"></div>
         <div class="col-md-8 col-xs-8" id="midDiv">
             <div class="col-md-12">
-             <div class="panel panel-heading"><h2>ESRNL Intranet Portal</h2>
+             <div class="panel panel-heading">
+			
+			 <h2>ESRNL Intranet Portal</h2>
                 <div class="panel-title">
                     <h5 class="text-primary"><span class="fa fa-envelope text-muted"></span> There will be a staff meeting at 12pm conference room, everyone Should be there !</h5> </div>
              </div>
