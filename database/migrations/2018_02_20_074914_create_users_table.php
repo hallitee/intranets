@@ -13,9 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        //
-		
-			Schema::create('users', function (Blueprint $table) {
+  			Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('email')->unique();		
@@ -28,8 +26,8 @@ class CreateUsersTable extends Migration
 			
 			
 			$table->foreign('dept_id')->references('id')->on('depts')->onDelete('cascade');		
-			$table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');										
-				});	
+			$table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');						
+			});
     }
 
     /**
@@ -39,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 }

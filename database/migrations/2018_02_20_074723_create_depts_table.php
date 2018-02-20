@@ -13,9 +13,9 @@ class CreateDeptsTable extends Migration
      */
     public function up()
     {
-						Schema::create('depts', function (Blueprint $table) {
+		Schema::create('depts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('description');	
             $table->string('dept_hod');	
             $table->string('depthod_email');
@@ -25,7 +25,8 @@ class CreateDeptsTable extends Migration
 			$table->softDeletes();
 			
 			$table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');							
-        });
+        });				
+			
     }
 
     /**

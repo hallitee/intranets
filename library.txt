@@ -1,0 +1,64 @@
+        Schema::create('visitlogs', function (Blueprint $table) {
+            $table->increments('id');
+			
+            $table->timestamps();
+        });
+
+			Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('email')->unique();		
+            $table->string('password');	
+            $table->integer('company_id')->unsigned()->index();				
+            $table->integer('dept_id')->unsigned()->index()->nullable();				
+            $table->rememberToken();
+            $table->timestamps();
+			$table->softDeletes();	
+			
+			
+			$table->foreign('dept_id')->references('id')->on('depts')->onDelete('cascade');		
+			$table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');						
+						Schema::create('depts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('description');	
+            $table->string('dept_hod');	
+            $table->string('depthod_email');
+            $table->integer('company_id')->unsigned()->index();
+            $table->rememberToken();
+            $table->timestamps();
+			$table->softDeletes();
+			
+			$table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');							
+        });				
+				});	
+				
+						Schema::create('locations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+		Schema::create('company', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');	
+            $table->string('comp_gm');	
+            $table->string('compgm_email');	
+            $table->integer('location_id');				
+			$table->foreign('location_id')->references('id')->on('locations');				
+            $table->rememberToken();
+            $table->timestamps();
+        });		
+			
+			Schema::create('dept', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');	
+            $table->string('dept_hod');	
+            $table->string('depthod_email');
+            $table->integer('company_id');			
+			$table->foreign('company_id')->references('id')->on('company');				
+            $table->rememberToken();
+            $table->timestamps();
+        });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVisitlogsTable extends Migration
+class AddColumnToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateVisitlogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('visitlogs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
+			
+		$table->integer('group')->after('password')->nullable();	
         });
     }
 
@@ -26,6 +27,8 @@ class CreateVisitlogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visitlogs');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }
