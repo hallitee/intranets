@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 use Closure;
-use Auth;
 
 class AdminMiddleware
 {
@@ -17,9 +18,14 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
 		
-		if($request->user()->admin != 'admin'){
-			retrun redirect('home');
-		}
-        return $next($request);
+		if ( Auth::check() && Auth::user()->isAdmin() == 1 )
+        {
+            return $next($request);
+        }
+	
+			
+			return redirect('login');
+		
+		
     }
 }

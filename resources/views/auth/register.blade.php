@@ -61,6 +61,35 @@
                             </div>
                         </div>
 
+						
+                        <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
+                            <label for="company" class="col-md-4 control-label">company</label>
+
+                            <div class="col-md-6">
+                                <input id="company" type="text" class="form-control" name="company" required>
+
+                                @if ($errors->has('company'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('company') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('dept') ? ' has-error' : '' }}">
+                            <label for="dept" class="col-md-4 control-label">Department</label>
+
+                            <div class="col-md-6">
+                                <input id="dept" type="text" class="form-control" name="dept">
+
+                                @if ($errors->has('dept'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('dept') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+						
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

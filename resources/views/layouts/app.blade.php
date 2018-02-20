@@ -10,34 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap/css/sb-admin-2.css">
 	 <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
      <link href="../bootstrap/css/style.css" rel="stylesheet" type="text/css">
+	 @section('header')
 </head>
-<style type="text/css" media="screen">
-div{
-	#padding: 1px;
-	#border: 1px solid grey;
-}	
-body{
-    background-color:   #f8f8f8;
-}
-#topdiv{
-    border: 0.5px solid  #d5d2d2 ;
-    height: 55px;
-}
-#midDiv{
-    background-color: white;
-}
-.sideDiv{
-    
-}
-a:focus, a:hover {
-    text-decoration: none;
-}
-.thumbnail:hover{
-    border: 5px solid grey;
-}
-</style>
+
 <body>
- <div class="row">
+ <div class="row" style="margin-bottom:10px">
         <div class="col-md-12" id="topdiv">
 		        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -95,11 +72,12 @@ a:focus, a:hover {
             </div>
         </nav>
 		</div>
+		
     </div>
   
 
-
         @yield('content')
+
  
 
     <!-- Scripts -->

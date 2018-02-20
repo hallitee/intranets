@@ -1,4 +1,31 @@
-@extends('layouts.app')
+@extends('layouts.app1')
+
+@section('header')
+<style type="text/css" media="screen">
+div{
+	#padding: 1px;
+	#border: 0.5px solid grey;
+}	
+body{
+    background-color: white;
+}
+#topdiv{
+    border: 0.5px solid white ;
+    height: 20px;
+}
+#midDiv{
+    background-color: white;
+}
+.sideDiv{
+    
+}
+a:focus, a:hover {
+    text-decoration: none;
+}
+.thumbnail:hover{
+    border: 2px solid grey;
+}
+</style>
 @section('content')
  <div class="row">
         <div class="col-md-12" id="topdiv"></div>

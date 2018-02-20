@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Http\Request;
+use Spatie\Browsershot\Browsershot;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,14 +12,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+
+Route::get('getadmin', function(){
+	 return view('admin.index');
+})->name('gadmin')->middleware('auth', 'admin');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::get('/', function() {
+	$url = Input::get('url');
+	echo $url;
+    //return view('index');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
