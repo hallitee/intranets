@@ -19,6 +19,7 @@ use Notifiable;
         'password', 'remember_token',
     ];
 	public function isAdmin(){
+		
 		return $this->admin;
 	}
 }

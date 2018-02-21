@@ -1,38 +1,6 @@
 @extends('layouts.app1')
 
-@section('header')
-<style type="text/css" media="screen">
-div{
-	#padding: 1px;
-	#border: 0.5px solid grey;
-}	
-body{
-    background-color: white;
-}
-#topdiv{
-    border: 0.5px solid white ;
-    height: 20px;
-}
-#midDiv{
-    background-color: white;
-}
-.sideDiv{
-    
-}
-a:focus, a:hover {
-    text-decoration: none;
-}
-.thumbnail:hover{
-    border: 2px solid grey;
-}
-</style>
 @section('content')
- <div class="row">
-        <div class="col-md-12" id="topdiv"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-2 col-xs-2 sideDiv"></div>
-        <div class="col-md-8 col-xs-8" id="midDiv">
             <div class="col-md-12">
              <div class="panel panel-heading">
 			
@@ -244,8 +212,5 @@ a:focus, a:hover {
             </div> <!-- /.panel default -->  
 
             </div>
-         </div> <!-- /.col-md-8 midDIv -->
-         <div class="col-md-2 col-xs-2 sideDiv"></div>
-    </div> <!-- /.row -->
 
-@endsection
+		 @endsection

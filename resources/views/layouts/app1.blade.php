@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Waybill Manager v1.0</title>
+    <title>Intranet </title>
 
     <!-- Bootstrap Core CSS -->
 
@@ -20,13 +20,46 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	
     <![endif]-->
-	
-	<script src="../bootstrap/js/jquery-2.2.4.min.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../bootstrap/css/sb-admin-2.css">
-	 <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-     <link href="../bootstrap/css/style.css" rel="stylesheet" type="text/css">
-@section('header')
+
+<style type="text/css" media="screen">
+div{
+	#padding: 1px;
+	#border: 0.5px solid grey;
+}	
+body{
+    background-color: white;
+}
+#topdiv{
+    border: 0.5px solid white ;
+    height: 20px;
+}
+#midDiv{
+    background-color: white;
+}
+.sideDiv{
+    
+}
+a:focus, a:hover {
+    text-decoration: none;
+}
+.thumbnail:hover{
+    border: 2px solid grey;
+}
+</style>	
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="print" href="../vendor/bootstrap/css/print.css"> 
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+  <link href="../dist/css/pagination.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -42,7 +75,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('login') }}">Home</a>
+         <a class="navbar-brand" href="{{ url('/') }}">Home</a>
             </div>
             <!-- /.navbar-header -->
 	
@@ -83,11 +116,22 @@
 			@show
         </nav>
 
-        
 
-              @yield('content')
-            <!-- /.row -->
-    
+	
+	    <div class="row">
+        <div class="col-md-2 col-xs-2 sideDiv">
+		@section('sideDivl')
+		@show
+		</div>
+        <div class="col-md-8 col-xs-8" id="midDiv">
+		@yield('content')
+	         </div> <!-- /.col-md-8 midDIv -->
+
+         <div class="col-md-2 col-xs-2 sideDiv">
+		 @section('sideDivr')
+		 @show
+		 </div>
+    </div> <!-- /.row -->
         <!-- /#page-wrapper -->
 
     </div>
@@ -97,8 +141,23 @@
 	
 	
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-	<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.blade.php.js"></script>
+	<script src="../dist/js/pagination.js"></script>
 </body>
 
 </html>

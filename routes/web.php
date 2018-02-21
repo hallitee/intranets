@@ -13,15 +13,15 @@ use Spatie\Browsershot\Browsershot;
 */
 
 
-Route::get('getadmin', function(){
-	 return view('admin.index');
+Route::get('config', function(){
+ return view('admin.index');
+//Browsershot::html('Foo')->setIncludePath('C:\Users\Taofik\Downloads');
+echo "success";
 })->name('gadmin')->middleware('auth', 'admin');
 Auth::routes();
-
+Route::resource('url', 'linksController');
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
-Route::get('/', function() {
-	$url = Input::get('url');
-	echo $url;
-    //return view('index');
+Route::get('/', function(){
+    return view('index');
 });
