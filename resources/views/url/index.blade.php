@@ -1,7 +1,5 @@
 @extends('layouts.app1')
-@section('navbar')
-@include('nav')
-@endsection('navbar')
+
 @section('content')
             <div class="col-md-12">
              <div class="panel panel-heading">
@@ -21,101 +19,52 @@
 
              </div> <!-- /.panel heading -->
 
-            <div id="collapseOne" class="panel-collapse collapse ">
+            <div id="collapseOne" class="panel-collapse collapse in">
 
                 <div class="panel-body">
 
-                    <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
+<!-- /.collapseOne-->				
+{!! Form::open(['action' => 'linksController@store', 'files'=>true]) !!}
 
+				<div class="row">
+					<div class="col-md-8 col-md-offset-3">
+						<div id="div_id_select" class="form-group required">
+						<label for="id_select"  class="control-label col-md-4  requiredField">Link Name<span class="asteriskField">*</span> </label>
+						<div class="controls col-md-5 "  style="margin-bottom: 10px">
+						{!! Form::text('lnkName',"",array('class' => 'input-md form-control', 'id'=>'lnkName')); !!}
+						</div>	
+					</div>
+				
+						<div id="div_id_select" class="form-group required">
+						<label for="id_select"  class="control-label col-md-4  requiredField">Link Url<span class="asteriskField">*</span> </label>
+						<div class="controls col-md-5 "  style="margin-bottom: 10px">
+						{!! Form::text('lnkUrl',"",array('class' => 'input-md form-control', 'id'=>'lnkUrl', 'placeholder' => 'http://192.168.198.1:9099')); !!}
+						</div>	
+					</div>
+						<div id="div_id_select" class="form-group required">
+						<label for="id_select"  class="control-label col-md-4  requiredField">Link Description<span class="asteriskField"></span> </label>
+						<div class="controls col-md-5 "  style="margin-bottom: 10px">
+						{!! Form::textarea('lnkDesc',"",array('class' => 'input-md form-control', 'id'=>'lnkDesc', 'cols'=>'4', 'rows'=>'3')); !!}
+						</div>	
+					</div>
+						<div id="div_id_select" class="form-group required">
+						<label for="id_select"  class="control-label col-md-4  requiredField">Url Image<span class="asteriskField">*</span> </label>
+						<div class="controls col-md-8 "  style="margin-bottom: 10px">
+						{!! Form::file('lnkImg',array('class' => 'input-md form-control', 'id'=>'lnkImg')); !!}
+						</div>						
+					</div>
+						<div id="div_id_select" class="form-group required">
+						<label for="id_select"  class="control-label col-md-4  requiredField"><span class="asteriskField"></span> </label>
+						<div class="controls col-md-8 "  style="margin-bottom: 10px">
+						{!! Form::submit('SAVE'); !!}
+						</div>						
+					</div>
+
+					
+					</div>
                 </div>
+	{!! Form::close() !!}
+                </div> <!-- /Panel Body Close -->
             </div> <!-- /.collapseOne-->
 
             </div> <!-- /.panel default -->

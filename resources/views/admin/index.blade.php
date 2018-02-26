@@ -1,7 +1,5 @@
 @extends('layouts.app1')
-@section('navbar')
-@include('nav')
-@section('navbar')
+
 @section('content')
  <div class="col-md-12">
              <div class="panel panel-heading">

@@ -10,6 +10,7 @@
         "anam/phantommagick": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4.0",
         "spatie/browsershot": "^3.16"
     },
     "require-dev": {

@@ -18,8 +18,8 @@ class CreateLinksTable extends Migration
             $table->string('name')->unique();
             $table->string('url')->unique();
             $table->string('descr');			
-            $table->binary('img1');	
-            $table->binary('img2');		
+            $table->string('img1');	
+            $table->string('img2');		
             $table->integer('group');		
             $table->integer('dept_id')->unsigned()->index()->nullable();			
             $table->timestamps();

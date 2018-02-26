@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\link;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\UrlStoreValidation;
 class linksController extends Controller
 {
     /**
@@ -35,9 +35,11 @@ class linksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UrlStoreValidation $request)
     {
         //
+			
+	
     }
 
     /**

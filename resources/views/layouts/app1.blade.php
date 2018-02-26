@@ -112,7 +112,9 @@ a:focus, a:hover {
             </ul>
             <!-- /.navbar-top-links -->
 			@section('navbar')
-			
+			@if((Auth::check()) && (Auth::user()->isAdmin()))
+			@include('nav')
+			@endif
 			@show
         </nav>
 
