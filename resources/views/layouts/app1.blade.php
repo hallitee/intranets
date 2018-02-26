@@ -126,6 +126,11 @@ a:focus, a:hover {
 		@show
 		</div>
         <div class="col-md-8 col-xs-8" id="midDiv">
+		 <ul style="color:red;font-size:14px">
+ @foreach($errors->all() as $error)
+<li>{{ $error }}</li>
+ @endforeach
+</ul>
 		@yield('content')
 	         </div> <!-- /.col-md-8 midDIv -->
 

@@ -25,9 +25,20 @@ class UrlStoreValidation extends FormRequest
     {
         return [
             //
-		'lnkName' => 'required|unique:posts|max:255',
+		'lnkName' => 'required|max:255',
         'lnkUrl' => 'required',
-		'lnkImg' => 'required',
+		'lnkImg' => 'required|Image',
         ];
     }
+
+	public function messages(){
+		return[
+		'lnkName.required'=>'Url name can not be empty',
+		'lnkUrl.required'=>'Url address can not be empty',
+		'lnkImg.required'=>'Url Image should be attached',
+		'lnkImg.image'=>'File should be jpeg, png, bmp, gif, or svg extension',
+
+		
+		];
+	}	
 }

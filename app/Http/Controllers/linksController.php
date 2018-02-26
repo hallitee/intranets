@@ -37,9 +37,25 @@ class linksController extends Controller
      */
     public function store(UrlStoreValidation $request)
     {
-        //
-			
-	
+     
+		 $lnkName = $request->lnkName;
+		 $lnkUrl = $request->lnkUrl;
+		 $lnkDesc = $request->lnkDesc;
+		 $lnkImg = $request->lnkImg;
+		 
+		 
+		 $l = new link;
+		 $l->name = $lnkName;
+		 $l->descr = $lnkDesc;
+		 $l->url = $lnkUrl;
+		 if ($request->hasFile('lnkImg')) {
+		$path = $request->file('lnkImg')->store('Images');
+		echo $path;
+		$l->img1 = $path;
+		}		 
+		 $l->save();
+		 return;
+		
     }
 
     /**
