@@ -46,74 +46,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
+       
 
                 </div>
             </div> <!-- /.collapseOne-->
@@ -134,79 +67,27 @@
 
             <div id="collapseTwo" class="panel-collapse collapse in">
 
-                <div class="panel-body">
-                <div class="row">
-            <div class="col-xs-4">
-                <a href="http://192.168.200.241:3000">
-                <div class="thumbnail">
-                    <img src="conference1.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h4>Conference Room Manager</h4>
-                        <p><u>192.168.200.241:3000</u></p>
-                        
-                    </div>
-                </div></a>
-            </div>
-            <div class="col-xs-4">
-                <a href="http://192.168.1.2:8090">
-                <div class="thumbnail">
-                    <img src="sophos1.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h4>Sophos</h4>
-                        <p><u>192.168.1.2:8090</u></p>
-                   
-                    </div>
-                </div></a>
-            </div>
-            <div class="col-xs-4">
-                <a href="http://192.168.200.241">
-                <div class="thumbnail">
-                    <img src="waybill1.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h4>Waybill Manager</h4>
-                        <p><u>192.168.200.241</u></p>
-                       
-                    </div>
-                </div></a>
-            </div>
+            <div class="panel-body">
 
-                </div>
-                <div class="row">
-            <div class="col-xs-4">
-                <a href="http://192.168.200.241:3000">
+@foreach($links->chunk(3) as $chunk)	
+		
+			<div class="row">
+	@foreach($chunk as $link)
+            <div class="col-xs-4 col-md-4 col-lg-4">
+                <a href="{{URL::to('url/'.$link->id)}}">
                 <div class="thumbnail">
-                    <img src="conference1.jpg" alt="Sample Image">
+                    <img src="{{asset("uploads/".$link->img1)}}" alt="Sample Image">
                     <div class="caption">
-                        <h4>Conference Room Manager</h4>
-                        <p><u>192.168.200.241:3000</u></p>
+                        <h4>{{$link->descr}}</h4>
+                        <p><u>{{$link->url}}</u></p>
                         
                     </div>
                 </div></a>
             </div>
-            <div class="col-xs-4">
-                <a href="http://192.168.1.2:8090">
-                <div class="thumbnail">
-                    <img src="sophos1.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h4>Sophos</h4>
-                        <p><u>192.168.1.2:8090</u></p>
-                   
-                    </div>
-                </div></a>
-            </div>
-            <div class="col-xs-4">
-                <a href="http://192.168.200.241">
-                <div class="thumbnail">
-                    <img src="waybill1.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h4>Waybill Manager</h4>
-                        <p><u>192.168.200.241</u></p>
-                       
-                    </div>
-                </div></a>
-            </div>
-            
-                </div>                
+			@endforeach
+			</div>
+@endforeach
+               
             </div> <!-- /.collapseOne-->
 
             </div> <!-- /.panel default -->  

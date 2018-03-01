@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+		$l  = link::all();
+		$mv = 0;
+        return view('index')->with(['links'=>$l, 'mostv'=>$mv]);
     }
 }

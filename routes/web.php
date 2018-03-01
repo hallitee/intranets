@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Http\Request;
 use Spatie\Browsershot\Browsershot;
+use App\link;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,5 +24,6 @@ Route::resource('url', 'linksController');
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::get('/', function(){
-    return view('index');
+	$l = link::all();
+    return view('index')->with(["links"=>$l]);
 });

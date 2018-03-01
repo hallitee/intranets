@@ -1,17 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\link;
+use App\visitlog;
 use Illuminate\Http\Request;
 use App\Http\Requests\UrlStoreValidation;
 class linksController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index','show']]);
+    }
+	
     public function index()
     {
         //
@@ -49,12 +56,12 @@ class linksController extends Controller
 		 $l->descr = $lnkDesc;
 		 $l->url = $lnkUrl;
 		 if ($request->hasFile('lnkImg')) {
-		$path = $request->file('lnkImg')->store('Images');
+		$path = $request->file('lnkImg')->store('', 'MyDiskDriver');
 		echo $path;
 		$l->img1 = $path;
 		}		 
 		 $l->save();
-		 return;
+		 return view('url.index');
 		
     }
 
@@ -64,9 +71,27 @@ class linksController extends Controller
      * @param  \App\link  $link
      * @return \Illuminate\Http\Response
      */
-    public function show(link $link)
+    public function show($link)
     {
-        //
+		$l = link::find($link);
+		$ip = \Request::ip();	
+		$v = new visitlog;
+if(Auth::guest()){
+$v->user_ip = $ip;
+$v->dest_url = $l->url;
+$v->user_id = 0;
+$v->link_id = $l->id;
+$v->save();
+}
+else{
+$v->user_ip = $ip;
+$v->dest_url = $l->url;
+$v->user_id = Auth::user()->id;
+$v->link_id = $l->id;
+$v->save();
+}
+	return redirect()->away($l->url);
+		
     }
 
     /**
