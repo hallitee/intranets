@@ -23,7 +23,4 @@ Auth::routes();
 Route::resource('url', 'linksController');
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
-Route::get('/', function(){
-	$l = link::all();
-    return view('index')->with(["links"=>$l]);
-});
+Route::get('/', 'HomeController@index');

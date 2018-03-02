@@ -42,6 +42,7 @@ body{
 a:focus, a:hover {
     text-decoration: none;
 }
+
 .thumbnail:hover{
     border: 2px solid grey;
 }

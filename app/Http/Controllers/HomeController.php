@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
+use App\link;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      //  $this->middleware('auth');
     }
 
     /**
@@ -23,8 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+		$ip = \Request::ip();	
+		if(Auth::guest()){
 		$l  = link::all();
-		$mv = 0;
+		}else{
+			
+			
+		}
+		$mv=0;
+
         return view('index')->with(['links'=>$l, 'mostv'=>$mv]);
     }
 }

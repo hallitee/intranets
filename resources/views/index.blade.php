@@ -9,6 +9,7 @@
                     <h5 class="text-primary"><span class="fa fa-envelope text-muted"></span> There will be a staff meeting at 12pm conference room, everyone Should be there !</h5> </div>
              </div>
             </div>
+			@if(count($mostv)>0)
         <div class="col-md-12">
             <div class="panel panel-info">
              <div class="panel-heading">
@@ -46,13 +47,15 @@
                             </div>
                         </a>
                     </div>
-       
-
-                </div>
-            </div> <!-- /.collapseOne-->
+					</div> <!-- /.col-lg-3-->
+				
+				</div> <!-- /.Panel Body-->
 
             </div> <!-- /.panel default -->
         </div> <!-- /col-md-12 -->
+	
+		</div>
+				@endif
             <div class="col-md-12">
                           <div class="panel panel-info">
              <div class="panel-heading">

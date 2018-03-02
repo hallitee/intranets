@@ -22,4 +22,8 @@ use Notifiable;
 		
 		return $this->admin;
 	}
+	public function visitlogs(){
+		
+		return $this->hasMany('App\visitlog');
+	}
 }
