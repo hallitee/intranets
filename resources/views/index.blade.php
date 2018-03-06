@@ -25,30 +25,21 @@
             <div id="collapseOne" class="panel-collapse collapse ">
 
                 <div class="panel-body">
-
-                    <div class="col-lg-3 col-md-6 col-xs-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+			@foreach($mostv as $m)
+            <div class="col-xs-2 col-md-2 col-lg-2">
+                <a href="{{URL::to('url/'.$m->link->id)}}">
+                <div class="thumbnail">
+                    <img src="{{asset("uploads/".$m->link->img1)}}" alt="Sample Image" width="100" height="50">
+                    <div class="caption" >
+                   
+                                  
                     </div>
-					</div> <!-- /.col-lg-3-->
+                </div></a>
+            </div>				
+
+			@endforeach
 				
+					
 				</div> <!-- /.Panel Body-->
 
             </div> <!-- /.panel default -->
@@ -71,26 +62,25 @@
             <div id="collapseTwo" class="panel-collapse collapse in">
 
             <div class="panel-body">
-
 @foreach($links->chunk(3) as $chunk)	
 		
 			<div class="row">
 	@foreach($chunk as $link)
             <div class="col-xs-4 col-md-4 col-lg-4">
-                <a href="{{URL::to('url/'.$link->id)}}">
                 <div class="thumbnail">
-                    <img src="{{asset("uploads/".$link->img1)}}" alt="Sample Image">
-                    <div class="caption">
-                        <h4>{{$link->descr}}</h4>
-                        <p><u>{{$link->url}}</u></p>
+				 <a href="{{URL::to('url/'.$link->id)}}">
+                    <img src="{{asset("uploads/".$link->img1)}}" class="img-responsive" width="450" height="150">
+                    <div class="caption" >
+                        <h5>{{$link->name}}</h5>
+                        <p class="h5"><u>{{$link->url}}</u></p>
                         
                     </div>
-                </div></a>
+					</a>
+                </div>
             </div>
 			@endforeach
 			</div>
-@endforeach
-               
+@endforeach  
             </div> <!-- /.collapseOne-->
 
             </div> <!-- /.panel default -->  

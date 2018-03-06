@@ -19,6 +19,9 @@ Route::get('config', function(){
 //Browsershot::html('Foo')->setIncludePath('C:\Users\Taofik\Downloads');
 echo "success";
 })->name('gadmin')->middleware('auth', 'admin');
+Route::get('url/list', function(){
+ return view('url.edit');
+})->name('edit')->middleware('auth', 'admin');
 Auth::routes();
 Route::resource('url', 'linksController');
 Route::get('/home', 'HomeController@index')->name('home');

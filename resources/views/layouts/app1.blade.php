@@ -22,10 +22,7 @@
     <![endif]-->
 
 <style type="text/css" media="screen">
-div{
-	#padding: 1px;
-	#border: 0.5px solid grey;
-}	
+	
 body{
     background-color: white;
 }
@@ -40,9 +37,8 @@ body{
     
 }
 a:focus, a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
-
 .thumbnail:hover{
     border: 2px solid grey;
 }
@@ -70,13 +66,7 @@ a:focus, a:hover {
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-         <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+			<a class="navbar-brand" href="{{ url('/') }}">Home</a>
             </div>
             <!-- /.navbar-header -->
 	
@@ -88,10 +78,9 @@ a:focus, a:hover {
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span>{{Auth::user()->name}}</span>    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="divider">{{ Auth::user()->name}}</li>
                         <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i> Logout

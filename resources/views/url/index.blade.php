@@ -50,7 +50,7 @@
 						<div id="div_id_select" class="form-group required">
 						<label for="id_select"  class="control-label col-md-4  requiredField">Url Image<span class="asteriskField">*</span> </label>
 						<div class="controls col-md-8 "  style="margin-bottom: 10px">
-						{!! Form::file('lnkImg',array('class' => 'input-md form-control', 'id'=>'lnkImg')); !!}
+						{!! Form::file('lnkImg',array('class' => 'form-control-file', 'id'=>'lnkImg')); !!}
 						</div>						
 					</div>
 						<div id="div_id_select" class="form-group required">

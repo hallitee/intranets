@@ -35,7 +35,7 @@
                                     <a href="{{ route('url.index')}}">Add New Url</a>
                                 </li>							
                                 <li>
-                                    <a href="#">Manage Url</a>
+                                    <a href="{{route('edit') }}">Manage Url</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

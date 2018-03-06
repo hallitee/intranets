@@ -103,6 +103,7 @@ $v->save();
     public function edit(link $link)
     {
         //
+				 return view('url.edit');
     }
 
     /**
