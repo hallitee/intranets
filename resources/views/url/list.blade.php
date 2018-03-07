@@ -18,16 +18,19 @@
                 </h4>
 
              </div> <!-- /.panel heading -->
-
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
             <div id="collapseOne" class="panel-collapse collapse in">
 
                 <div class="panel-body">
 
 				<div class="row">
-				<div class="">
-				
-				
-				</div> <!-- /table -->
+<div class="col-md-12">
+@include('url.listings')
+</div> <!-- /column -->
 				</div> <!-- /row -->
                 </div> <!-- /Panel Body Close -->
             </div> <!-- /.collapseOne-->

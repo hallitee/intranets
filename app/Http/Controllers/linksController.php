@@ -6,6 +6,8 @@ use App\link;
 use App\visitlog;
 use Illuminate\Http\Request;
 use App\Http\Requests\UrlStoreValidation;
+
+
 class linksController extends Controller
 
 {
@@ -16,7 +18,7 @@ class linksController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index','show']]);
+     //   $this->middleware('auth', ['except' => ['index','show']]);
     }
 	
     public function index()
@@ -100,10 +102,11 @@ $v->save();
      * @param  \App\link  $link
      * @return \Illuminate\Http\Response
      */
-    public function edit(link $link)
+    public function edit(Request $link)
     {
         //
-				 return view('url.edit');
+        $l = link::find($link->id);
+	    return view('url.edit')->with(['link'=>$l]);
     }
 
     /**
@@ -116,6 +119,20 @@ $v->save();
     public function update(Request $request, link $link)
     {
         //
+        $l = link::find($request->id);
+        $l->name = $request->lnkName;
+        $l->url = $request->lnkUrl;
+        $l->descr = $request->lnkDesc;
+        $l->name = $request->lnkName;
+        if ($request->hasFile('lnkImg')) {
+        $path = $request->file('lnkImg')->store('', 'MyDiskDriver');
+        $l->img1 = $path;
+        }   
+        $l->save();             
+
+        return redirect('url/list')->with('status', 'Updated Successfully');
+       // $all = link::paginate(5);
+      //  return view('url.list')->with(['url'=>$all]);
     }
 
     /**
@@ -124,8 +141,12 @@ $v->save();
      * @param  \App\link  $link
      * @return \Illuminate\Http\Response
      */
-    public function destroy(link $link)
+    public function destroy(Request $req)
     {
         //
+        $l = link::find($req->id);
+        $m = $l;
+        $l->delete();
+        return redirect('url/list')->with('status', $m->name.' '.'deleted Successfully');
     }
 }

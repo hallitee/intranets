@@ -43,19 +43,25 @@ a:focus, a:hover {
     border: 2px solid grey;
 }
 </style>	
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="print" href="../vendor/bootstrap/css/print.css"> 
+    <!-- jQuery -->
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{asset("/bootstrap/js/jquery-2.2.4.min.js")}}"></script>
+	<script src="{{asset("/bootstrap/js/bootstrap.min.js")}}"></script>
+    <link href="{{asset("/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="print" href="{{asset("/vendor/bootstrap/css/print.css")}}"> 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="{{asset("/vendor/metisMenu/metisMenu.min.css")}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-  <link href="../dist/css/pagination.css" rel="stylesheet">
+    <link href="{{asset("/dist/css/sb-admin-2.css")}}" rel="stylesheet">
+  <link href="{{asset("/dist/css/pagination.css")}}" rel="stylesheet">
     <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="{{asset("/vendor/morrisjs/morris.css")}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset("/vendor/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -138,23 +144,15 @@ a:focus, a:hover {
 	
 	
     <!-- Scripts -->
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="{{asset("/vendor/metisMenu/metisMenu.min.js")}}"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
+
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.blade.php.js"></script>
-	<script src="../dist/js/pagination.js"></script>
+    <script src="{{asset("/dist/js/sb-admin-2.blade.php.js")}}"></script>
+	<script src="{{asset("/dist/js/pagination.js")}}"></script>
 </body>
 
 </html>

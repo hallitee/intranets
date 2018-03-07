@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Spatie\Browsershot\Browsershot;
 use App\link;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +21,14 @@ Route::get('config', function(){
 echo "success";
 })->name('gadmin')->middleware('auth', 'admin');
 Route::get('url/list', function(){
- return view('url.edit');
+$l = link::paginate(5);
+return view('url.list')->with(['url'=>$l]);
+//return View::make('url.listings')
 })->name('edit')->middleware('auth', 'admin');
 Auth::routes();
-Route::resource('url', 'linksController');
+Route::resource('url', 'linksController', ['parameters' => [
+    'url' => 'id'
+]]);
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::get('/', 'HomeController@index');

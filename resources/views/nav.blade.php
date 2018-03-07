@@ -45,26 +45,16 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">Transfers<span class="fa arrow"></span></a>
-																		 <ul class="nav nav-third-level">
+    								 <ul class="nav nav-third-level">
 											<li>
 											<a href="#">Pending</a>
 											</li>		
 											<li>
 											<a href="#">Completed</a>
-											</li>												
+											</li>						
 									 </ul>
                                 </li>
-                                <li>
-                                    <a href="#">Loan<span class="fa arrow"></span></a>
-									 <ul class="nav nav-third-level">
-											<li>
-											<a href="#">Pending</a>
-											</li>		
-											<li>
-											<a href="#">Completed</a>
-											</li>												
-									 </ul>
-                                </li>								
+								
 
                             </ul>
                             <!-- /.nav-second-level -->
