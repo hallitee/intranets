@@ -29,7 +29,7 @@
             <div class="col-xs-2 col-md-2 col-lg-2">
                 <a href="{{URL::to('url/'.$m->link->id)}}">
                 <div class="thumbnail">
-                    <img src="{{asset("uploads/".$m->link->img1)}}" alt="Sample Image" width="100" height="50">
+                    <img src="{{asset("uploads/".$m->link->img1)}}" alt="Sample Image">
                     <div class="caption" >
                    
                                   
@@ -72,7 +72,7 @@
                     <img src="{{asset("uploads/".$link->img1)}}" class="img-responsive" width="450" height="150">
                     <div class="caption" >
                         <h5>{{$link->name}}</h5>
-                        <p class="h5"><u>{{$link->url}}</u></p>
+                        <p style="font-size:0.95vw" class="h5"><u>{{$link->url}}</u></p>
                         
                     </div>
 					</a>

@@ -59,11 +59,11 @@ class linksController extends Controller
 		 $l->url = $lnkUrl;
 		 if ($request->hasFile('lnkImg')) {
 		$path = $request->file('lnkImg')->store('', 'MyDiskDriver');
-		echo $path;
+
 		$l->img1 = $path;
 		}		 
 		 $l->save();
-		 return view('url.index');
+		 return redirect('url/list')->with('status', 'Saved Successfully');
 		
     }
 

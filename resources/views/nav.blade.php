@@ -11,16 +11,50 @@
                             <a href="#"><i class="fa fa-cog fa-fw"></i> Configuration <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">New User</a>
+                                    <a href="#">Locations<span class="fa arrow"></span></a>
+									 <ul class="nav nav-third-level">
+											<li>
+											<a href="{{route('loc.create')}}">Add Location</a>
+											</li>		
+											<li>
+											<a href="{{route('loc.index')}}">Manage Locations</a>
+											</li>						
+									 </ul>
                                 </li>
                     								
                                 <li>
-                                    <a href="#">Manage User</a>
+                                    <a href="#">Company<span class="fa arrow"></span></a>
+									    								 <ul class="nav nav-third-level">
+											<li>
+											<a href="{{route('comp.create')}}">Add Company</a>
+											</li>		
+											<li>
+											<a href="{{route('comp.index')}}">Manage Company</a>
+											</li>						
+									 </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Manage Company</a>
+                                    <a href="#">Departments<span class="fa arrow"></span></a>
+									    								 <ul class="nav nav-third-level">
+											<li>
+											<a href="{{route('dept.create')}}">Add Department</a>
+											</li>		
+											<li>
+											<a href="{{route('dept.index')}}">Manage Departments</a>
+											</li>						
+									 </ul>
                                 </li>
-
+                                <li>
+                                    <a href="#">Users<span class="fa arrow"></span></a>
+									    								 <ul class="nav nav-third-level">
+											<li>
+											<a href="{{route('register')}}">Add Users</a>
+											</li>		
+											<li>
+											<a href="#">Manage Users</a>
+											</li>						
+									 </ul>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
 							

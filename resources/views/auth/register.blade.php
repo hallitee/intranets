@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
-<div class="container">
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Register New User</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -65,9 +65,8 @@
                         <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
                             <label for="company" class="col-md-4 control-label">company</label>
 
-                            <div class="col-md-6">
-                                <input id="company" type="text" class="form-control" name="company" required>
-
+                            <div class="col-md-6">                            
+								{!! Form::select('company',$comp,"",array('class' => 'form-control', 'id'=>'company', 'required')); !!}
                                 @if ($errors->has('company'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('company') }}</strong>
@@ -80,7 +79,7 @@
                             <label for="dept" class="col-md-4 control-label">Department</label>
 
                             <div class="col-md-6">
-                                <input id="dept" type="text" class="form-control" name="dept">
+                                {!! Form::select('dept',[],"",array('class' => 'form-control', 'id'=>'dept', 'required')); !!}
 
                                 @if ($errors->has('dept'))
                                     <span class="help-block">
@@ -102,5 +101,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

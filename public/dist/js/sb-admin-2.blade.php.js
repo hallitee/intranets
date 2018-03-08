@@ -29,7 +29,7 @@ $(function() {
 	var $company =  $("#usercompany").val();
 	var $userpriv =  $("#userpriv").val();	
 	var $lc = $company+" "+$location;
-	console.log("Username " + $username + "  User id: "+ $userid + " company "+ $company +" location: "+ $location);
+	//console.log("Username " + $username + "  User id: "+ $userid + " company "+ $company +" location: "+ $location);
 	var $item_stat = "";
 	var $item_err = 0;
 	var $doc_id;
@@ -48,6 +48,37 @@ $("input[type='checkbox']").change(function() {
 		$("#proxyName").hide();
 		console.log("unchecked");
 	}
+});
+$("#dept").change(function(){
+	console.log($("#dept").val());
+});
+$("#company").change(function(){
+	console.log($("#company").val());
+	$("#dept").empty();
+$.ajax({
+					type: 'GET',
+					url: "/loaddepts",
+					dataType: 'JSON',
+					beforeSend: function(xhr)
+					{xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+					data: {
+					"id": $("#company").val(),
+					},                                                                                             
+					error: function( xhr ){ 
+					// alert("ERROR ON SUBMIT");
+					console.log("error on submit"+xhr);
+					},
+					success: function( data ){ 
+					//console.log(data + " Array Length "+ data.length);
+					console.log('Request data for users '+ data);
+					$.each(data, function(i, list){
+						$("#dept").append(new Option(list.name, list.id));
+					});
+					
+					}
+				});
+
+
 });
 $("#sentTosel").change(function(){
 	
