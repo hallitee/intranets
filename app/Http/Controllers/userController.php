@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\location;
+use App\User;
+use App\company;
 use Illuminate\Http\Request;
 
-class locationController extends Controller
+class userController extends Controller
 {
+	 public function __construct()
+    {
+       $this->middleware(['auth', 'admin']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-       $this->middleware(['auth','admin']);
-    }	 
     public function index()
     {
         //
-		$loc = location::paginate(5);
-		return view('loc.list')->with(['loc'=>$loc]);
-       
+		$u =  User::with('dept.company.location')->paginate(5);
+		return view('auth.list')->with('user', $u);
     }
 
     /**
@@ -32,7 +32,6 @@ class locationController extends Controller
     public function create()
     {
         //
-		 return view("loc.index");
     }
 
     /**
@@ -43,66 +42,74 @@ class locationController extends Controller
      */
     public function store(Request $request)
     {
-        
-		$loc = new location;
-		$loc->name = strtoupper($request->locName);
-		$loc->save();	
-		return redirect('loc')->with('status', 'Location '.$loc->name.' created succesfully');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\location  $location
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(location $location)
+    public function show(User $user)
     {
         //
-		return view('loc.list');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\location  $location
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request)
     {
         //
-		$loc = location::find($request->id);
-		return view('loc.edit')->with(['link'=>$loc]);
+		$comp = company::with('location')->get();
+		$all =  [];
+		foreach($comp as $c){
+		$all[$c->id] = $c->name.' '.$c->location->name;
+			
+		}
+		$user = User::with('dept.company.location')->find($request->id);
+		return view('auth.edit')->with(['user'=>$user,'comp'=>$all]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\location  $location
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         //
-		$loc = location::find($request->id);
-		$loc->name = $request->locName;
-		$loc->save();
-		return redirect('loc')->with('status', $loc->name.' '.'Updated Successfully');
-    }
+	$user = User::with('dept.company.location')->find($request->id);
+	$user->name = $request->uName;
+	$user->email = $request->uEmail;
+	if($request->has('uPassword')){
+		$user->password = bcrypt($request->uPassword);
+	}
+	$user->admin = $request->uRole;
 
+	$user->company_id = $request->uComp;
+	$user->dept_id = $request->uDept;
+	$user->save();
+	return redirect('user')->with('status', 'User updated successfully');
+	}
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\location  $location
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
         //
-        $loc =  location::find($request->id);
-        $m = $loc;
-        $loc->delete();
-        return redirect('loc')->with('status','Location '.$m->name.' delete successfully.');
+		$user = User::with('dept.company.location')->find($request->id);
+		$user->delete();
+		return redirect('user')->with('status', 'User deleted successfully');
+		
     }
 }

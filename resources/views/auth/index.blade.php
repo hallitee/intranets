@@ -42,13 +42,6 @@
 						</div>	
 					</div>
 						<div id="div_id_select" class="form-group required">
-						<label for="id_select"  class="control-label col-md-4  requiredField">Link Dept<span class="asteriskField"></span> </label>
-						<div class="controls col-md-5 "  style="margin-bottom: 10px">
-						{!! Form::select('lnkDept[]',$dept,'',array('multiple'=>true, 'class' => 'input-md form-control', 'id'=>'lnkUrl')); !!}
-						<i>Select multiple departments as applicable </i>
-						</div>	
-					</div>					
-						<div id="div_id_select" class="form-group required">
 						<label for="id_select"  class="control-label col-md-4  requiredField">Link Description<span class="asteriskField"></span> </label>
 						<div class="controls col-md-5 "  style="margin-bottom: 10px">
 						{!! Form::textarea('lnkDesc',"",array('class' => 'input-md form-control', 'id'=>'lnkDesc', 'cols'=>'4', 'rows'=>'3')); !!}

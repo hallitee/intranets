@@ -4,7 +4,6 @@ use Spatie\Browsershot\Browsershot;
 use App\link;
 use App\depts;
 use App\company;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +14,6 @@ use App\company;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('config', function(){
  return view('admin.index');
 //Browsershot::html('Foo')->setIncludePath('C:\Users\Taofik\Downloads');
@@ -39,6 +36,7 @@ Route::resource('url', 'linksController', ['parameters' => [
 Route::resource('loc', 'locationController', ['parameters'=>['loc'=>'id']]);
 Route::resource('comp', 'companyController', ['parameters'=>['comp'=>'id']]);
 Route::resource('dept', 'departmentController', ['parameters'=>['dept'=>'id']]);
+Route::resource('user', 'userController', ['parameters'=>['user'=>'id']]);
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::get('/', 'HomeController@index');

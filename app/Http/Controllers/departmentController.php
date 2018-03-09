@@ -14,6 +14,10 @@ class departmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+         $this->middleware(['auth','admin']);
+    }	 
     public function index()
     {
         //
@@ -52,13 +56,16 @@ class departmentController extends Controller
     public function store(Request $request)
     {
         //
+		$comid = $request->compId;
+		foreach($comid as $c){
 		$dept = new depts;
 		$dept->name = strtoupper($request->deptName);
 		$dept->description = $request->deptDesc;
 		$dept->dept_hod = $request->deptHod;
 		$dept->depthod_email = $request->deptHEmail;
-		$dept->company_id = $request->compId;
+		$dept->company_id = $c;
 		$dept->save();
+		}
 		return redirect('dept')->with('status', $dept->name.' department created successfully');
     }
 

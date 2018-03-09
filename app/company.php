@@ -14,9 +14,8 @@ class company extends Model
 	public function depts(){
 		
 		return $this->hasMany('App\depts');
-	}
+	}	
 	public function users(){
-		
-		return $this->hasMany('App\users');
+		return $this->hasMany('App\User');
 	}	
 	}

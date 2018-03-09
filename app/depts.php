@@ -13,4 +13,7 @@ class depts extends Model
 	public function location(){
 		return $this->belongsTo('App\location');
 	}
+	public function users(){
+		return $this->hasMany('App\User');
+	}	
 }

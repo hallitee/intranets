@@ -1,14 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
-            <div class="col-md-12">
-             <div class="panel panel-heading">
-			
-			 <h2>ESRNL Intranet Portal</h2>
-                <div class="panel-title">
-                    <h5 class="text-primary"><span class="fa fa-envelope text-muted"></span> There will be a staff meeting at 12pm conference room, everyone Should be there !</h5> </div>
-             </div>
-            </div>
+
 			@if(count($mostv)>0)
         <div class="col-md-12">
             <div class="panel panel-info">
@@ -27,7 +20,7 @@
                 <div class="panel-body">
 			@foreach($mostv as $m)
             <div class="col-xs-2 col-md-2 col-lg-2">
-                <a href="{{URL::to('url/'.$m->link->id)}}">
+                <a href="{{URL::to('url/'.$m->link->id)}}" data-placement="right" data-html="true" data-toggle="tooltip" title="{{ $m->link->name }} <br> {{$m->link->url}}">
                 <div class="thumbnail">
                     <img src="{{asset("uploads/".$m->link->img1)}}" alt="Sample Image">
                     <div class="caption" >
@@ -68,7 +61,7 @@
 	@foreach($chunk as $link)
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <div class="thumbnail">
-				 <a href="{{URL::to('url/'.$link->id)}}">
+				 <a href="{{URL::to('url/'.$link->id)}}" data-placement="right" data-html="true" data-toggle="tooltip" title="{{ $link->name }} <br> {{$link->url}}">
                     <img src="{{asset("uploads/".$link->img1)}}" class="img-responsive" width="450" height="150">
                     <div class="caption" >
                         <h5>{{$link->name}}</h5>
@@ -88,3 +81,6 @@
             </div>
 
 		 @endsection
+		 @section('sideDivr')
+index - Let them say  
+@endsection

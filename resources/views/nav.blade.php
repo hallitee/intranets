@@ -51,7 +51,7 @@
 											<a href="{{route('register')}}">Add Users</a>
 											</li>		
 											<li>
-											<a href="#">Manage Users</a>
+											<a href="{{route('user.index')}}">Manage Users</a>
 											</li>						
 									 </ul>
                                 </li>

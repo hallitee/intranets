@@ -18,10 +18,17 @@ use Notifiable;
     protected $hidden = [
         'password', 'remember_token',
     ];
+	public function dept(){
+		return $this->belongsTo('App\depts');
+	}	
+	public function company(){
+		return $this->belongsTo('App\company');
+	}		
 	public function isAdmin(){
 		
 		return $this->admin;
 	}
+
 	public function visitlogs(){
 		
 		return $this->hasMany('App\visitlog');

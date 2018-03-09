@@ -13,6 +13,10 @@ class companyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }	 
     public function index()
     {
         //
@@ -45,14 +49,19 @@ class companyController extends Controller
     public function store(Request $request)
     {
         //
+		$c = $request->compLoc;
+		foreach($c as $t){
 		$comp = new company;
 		$comp->name = $request->compName;
 		$comp->description = $request->compDesc;
 		$comp->comp_gm = $request->compGM;
 		$comp->compgm_email = $request->compGEmail;
-		$comp->location_id = $request->compLoc;
+		$comp->location_id = $t;
 		$comp->save();
+		}
 		return redirect("comp")->with('status', 'Company '.$comp->name.' save successfully');
+	
+	
     }
 
     /**

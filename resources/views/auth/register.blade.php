@@ -38,7 +38,18 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('company') ? ' has-error' : '' }}">
+                            <label for="company" class="col-md-4 control-label">Admin Role</label>
 
+                            <div class="col-md-6">                            
+								{!! Form::select('role',[1=>'YES',0=>'NO'],"",array('class' => 'form-control', 'id'=>'role')); !!}
+                                @if ($errors->has('role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

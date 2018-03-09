@@ -11,7 +11,11 @@ $(function() {
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size
 
-     $(document).ready(function(){	 
+     $(document).ready(function(){	
+	 $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+loadDept();	 
 		 function zeroPad(num, places) {
   var zero = places - num.toString().length + 1;
   return Array(+(zero > 0 && zero)).join("0") + num;
@@ -53,32 +57,7 @@ $("#dept").change(function(){
 	console.log($("#dept").val());
 });
 $("#company").change(function(){
-	console.log($("#company").val());
-	$("#dept").empty();
-$.ajax({
-					type: 'GET',
-					url: "/loaddepts",
-					dataType: 'JSON',
-					beforeSend: function(xhr)
-					{xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-					data: {
-					"id": $("#company").val(),
-					},                                                                                             
-					error: function( xhr ){ 
-					// alert("ERROR ON SUBMIT");
-					console.log("error on submit"+xhr);
-					},
-					success: function( data ){ 
-					//console.log(data + " Array Length "+ data.length);
-					console.log('Request data for users '+ data);
-					$.each(data, function(i, list){
-						$("#dept").append(new Option(list.name, list.id));
-					});
-					
-					}
-				});
-
-
+	loadDept();
 });
 $("#sentTosel").change(function(){
 	
@@ -896,7 +875,7 @@ $("body").on("click",'#rec_btn1', function(){
 		}
 			});
 
-			$("body").on("click", ".tableSection .pagination a", function(e){
+$("body").on("click", ".tableSection .pagination a", function(e){
 	 e.preventDefault();
 			              //  $('#load a').css('color', '#dfecf6');
               //  $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 100000;" src="/images/loading.gif" />');
@@ -1563,6 +1542,34 @@ function recComplete(){
 				$('#edit').modal("hide");
 				window.location.href = '/home';
 				}, 4500);
+}
+function loadDept() {
+	
+$("#dept").empty();
+$.ajax({
+					type: 'GET',
+					url: "/loaddepts",
+					dataType: 'JSON',
+					beforeSend: function(xhr)
+					{xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+					data: {
+					"id": $("#company").val(),
+					},                                                                                             
+					error: function( xhr ){ 
+					// alert("ERROR ON SUBMIT");
+					console.log("error on submit"+xhr);
+					},
+					success: function( data ){ 
+					//console.log(data + " Array Length "+ data.length);
+					console.log('Request data for users '+ data);
+					$.each(data, function(i, list){
+						$("#dept").append(new Option(list.name, list.id));
+					});
+					
+					}
+				});
+	
+	
 }
 function recLoan(){
 						

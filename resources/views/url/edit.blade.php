@@ -39,6 +39,13 @@
                         {!! Form::text('lnkUrl',$link->url,array('class' => 'input-md form-control', 'id'=>'lnkUrl', 'placeholder' => 'http://192.168.198.1:9099')); !!}
                         </div>  
                     </div>
+						<div id="div_id_select" class="form-group required">
+						<label for="id_select"  class="control-label col-md-4  requiredField">Link Dept<span class="asteriskField"></span> </label>
+						<div class="controls col-md-5 "  style="margin-bottom: 10px">
+						{!! Form::select('lnkDept',$dept,'',array('multiple'=>true, 'class' => 'input-md form-control', 'id'=>'lnkUrl')); !!}
+						<i>Select multiple departments as applicable </i>
+						</div>	
+					</div>						
                         <div id="div_id_select" class="form-group required">
                         <label for="id_select"  class="control-label col-md-4  requiredField">Link Description<span class="asteriskField"></span> </label>
                         <div class="controls col-md-5 "  style="margin-bottom: 10px">

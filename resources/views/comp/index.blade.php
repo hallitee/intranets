@@ -56,7 +56,8 @@
 						<div id="div_id_select" class="form-group required">
 						<label for="id_select"  class="control-label col-md-4  requiredField">Location<span class="asteriskField"></span> </label>
 						<div class="controls col-md-5 "  style="margin-bottom: 10px">
-						{!! Form::select('compLoc',$loc,'',array('class' => 'form-control', 'id'=>'compLoc', 'required')); !!}
+						{!! Form::select('compLoc[]',$loc,'',array('multiple'=>true, 'class' => 'form-control', 'id'=>'compLoc','required')); !!}
+						<i> Select multiple location as it applies. </i>
 						</div>	
 					</div>					
 						<div id="div_id_select" class="form-group required">
