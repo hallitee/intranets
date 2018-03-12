@@ -27,13 +27,17 @@ class HomeController extends Controller
     {
 		$ip = \Request::ip();	
 		if(Auth::guest()){
-		$l  = link::all();
-		$mv = visitlog::with('link')->selectRaw('link_id, count(*), user_ip')->groupBy('link_id')->having('user_ip', '=',$ip)->orderBy('count(*)', 'desc')->take(6)->get();
+		$l  = link::where('dept_id', 0)->get();
+		
+		
+		$mv = visitlog::join('links', 'visitlogs.link_id', '=', 'links.id')->selectRaw('link_id, count(*), dept_id, user_ip')->groupBy('link_id')->having('user_ip', '=',$ip)->having('dept_id','=', 0)->orderBy('count(*)', 'desc')->take(6)->get();
+		$ld = [];
 		}else{
-		$l  = link::all();
+		$l  = link::where('dept_id', 0)->get();
 		$mv = visitlog::with('link')->selectRaw('link_id, count(*), user_ip')->groupBy('link_id')->having('user_ip', '=',$ip)->orderBy('count(*)', 'desc')->take(6)->get();			
-			
+		$ud = Auth::user();
+		$ld = link::where('dept_id', $ud->dept_id)->get();
 		}
-        return view('index')->with(['links'=>$l, 'mostv'=>$mv]);
+        return view('index')->with(['links'=>$l,'dept' => $ld, 'mostv'=>$mv]);
     }
 }

@@ -15,5 +15,8 @@ class depts extends Model
 	}
 	public function users(){
 		return $this->hasMany('App\User');
+	}
+	public function links(){
+		return $this->hasMany('App\link');
 	}	
 }

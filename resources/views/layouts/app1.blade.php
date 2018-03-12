@@ -115,8 +115,11 @@ html {
 			@section('navbar')
 			@if((Auth::check()) && (Auth::user()->isAdmin()))
 			@include('nav')
+			
 			@endif
+			
 			@show
+				
         </nav>
 
 
@@ -125,10 +128,9 @@ html {
         <div class="col-lg-2 col-md-2 col-xs-2 sideDiv">
 		@section('sideDivl')
 		@show
-		https://www.w3schools.com/bootstrap/bootstrap_tooltip.asp
-
-How To Create a Tooltip. To create a tooltip, add the data-toggle="tooltip" attribute to an element. Use the title attribute to specify the text that should be displayed inside the tooltip: <a href="#" data-toggle="tooltip" title="Hooray!">Hover over me</a>. Note: Tooltips must be initialized with jQuery: select the specified element ...
+		<img src="{{asset("uploads/soklin.jpg")}}" class="img-responsive" width="255" height="450">
 		</div>
+		
         <div class="col-lg-8 col-md-8 col-xs-8" id="midDiv">
 		 <ul style="color:red;font-size:14px">
 		@foreach($errors->all() as $error)
@@ -137,8 +139,18 @@ How To Create a Tooltip. To create a tooltip, add the data-toggle="tooltip" attr
 		</ul>
 		@yield('content')
 	    </div> <!-- /.col-md-8 midDIv -->
+        <div class="col-lg-2 col-md-2 col-xs-2 sideDiv">
+		@section('sideDivl')
+		@show	
+		
 
-    </div> <!-- /.row -->
+		<img src="{{asset("uploads/sup2.jpg")}}" class="img-responsive" width="255" height="450">
+       
+				
+              
+			
+		</div>		
+		</div> <!-- /.row -->
         <!-- /#page-wrapper -->
 
     </div>

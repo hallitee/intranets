@@ -35,10 +35,10 @@
 					
 				</div> <!-- /.Panel Body-->
 
-            </div> <!-- /.panel default -->
-        </div> <!-- /col-md-12 -->
+            </div> <!-- /.collapse One -->
+        </div> <!-- /.panel default -->
 	
-		</div>
+		</div> <!-- /col-md-12 -->
 				@endif
             <div class="col-md-12">
                           <div class="panel panel-info">
@@ -79,8 +79,52 @@
             </div> <!-- /.panel default -->  
 
             </div>
+					
+</div>
 
+@if(count($dept)>0)
+            <div class="col-md-12">
+                          <div class="panel panel-info">
+             <div class="panel-heading">
+
+                <h4 class="panel-title">
+
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-log-in "></span>  <u>Department</u></a>
+ 
+                </h4>
+
+             </div> <!-- /.panel heading -->
+
+            <div id="collapseTwo" class="panel-collapse collapse in">
+
+            <div class="panel-body">
+@foreach($dept->chunk(3) as $chunk)	
+		
+			<div class="row">
+	@foreach($chunk as $link)
+            <div class="col-xs-4 col-md-4 col-lg-4">
+                <div class="thumbnail">
+				 <a href="{{URL::to('url/'.$link->id)}}" data-placement="right" data-html="true" data-toggle="tooltip" title="{{ $link->name }} <br> {{$link->url}}">
+                    <img src="{{asset("uploads/".$link->img1)}}" class="img-responsive" width="450" height="150">
+                    <div class="caption" >
+                        <h5>{{$link->name}}</h5>
+                        <p style="font-size:0.95vw" class="h5"><u>{{$link->url}}</u></p>
+                        
+                    </div>
+					</a>
+                </div>
+            </div>
+			@endforeach
+			</div>
+@endforeach  
+            </div> <!-- /.collapseOne-->
+
+            </div> <!-- /.panel default -->  
+
+            </div>
+					
+</div>	
+
+
+@endif
 		 @endsection
-		 @section('sideDivr')
-index - Let them say  
-@endsection

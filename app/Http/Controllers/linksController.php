@@ -7,7 +7,7 @@ use App\depts;
 use App\visitlog;
 use Illuminate\Http\Request;
 use App\Http\Requests\UrlStoreValidation;
-
+use Illuminate\Support\Facades\DB;
 
 class linksController extends Controller
 
@@ -19,7 +19,7 @@ class linksController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','admin']);
+       // $this->middleware(['auth','admin']);
     }
 	
     public function index()
@@ -52,6 +52,7 @@ class linksController extends Controller
      */
     public function store(UrlStoreValidation $request)
     {
+		if(count($request->lnkDept)>0){
 		foreach($request->lnkDept as $dept){
 		 $lnkName = $request->lnkName;
 		 $lnkUrl = $request->lnkUrl;
@@ -70,6 +71,28 @@ class linksController extends Controller
 		$l->img1 = $path;
 		}		 
 		 $l->save();
+		}
+		}
+		else{
+		DB::statement('SET FOREIGN_KEY_CHECKS=0');				
+		 $lnkName = $request->lnkName;
+		 $lnkUrl = $request->lnkUrl;
+		 $lnkDesc = $request->lnkDesc;
+		 $lnkImg = $request->lnkImg;
+		 
+		 
+		 $l = new link;
+		 $l->name = $lnkName;
+		 $l->descr = $lnkDesc;
+		 $l->url = $lnkUrl;
+		 $l->dept_id = 0;
+		 if ($request->hasFile('lnkImg')) {
+		$path = $request->file('lnkImg')->store('', 'MyDiskDriver');
+
+		$l->img1 = $path;
+		}		 
+		 $l->save();
+		 DB::statement('SET FOREIGN_KEY_CHECKS=1');	
 		}
 		 return redirect('url/list')->with('status', 'Saved Successfully');
 		
@@ -113,8 +136,13 @@ $v->save();
     public function edit(Request $link)
     {
         //
-        $l = link::find($link->id);
-	    return view('url.edit')->with(['link'=>$l]);
+		$dept = [];
+		$f = depts::with('company.location')->get();
+		foreach($f as $a){
+			$dept[$a->id]  = $a->name.' '.$a->company->name.' '.$a->company->location->name;
+		}
+        $l = link::with('dept')->find($link->id);
+	    return view('url.edit')->with(['link'=>$l, 'dept'=>$dept]);
     }
 
     /**

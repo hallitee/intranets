@@ -74,25 +74,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <li>
-                            <a href="#"><i class="fa fa-edit fa-tasks"></i> Reports<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Transfers<span class="fa arrow"></span></a>
-    								 <ul class="nav nav-third-level">
-											<li>
-											<a href="#">Pending</a>
-											</li>		
-											<li>
-											<a href="#">Completed</a>
-											</li>						
-									 </ul>
-                                </li>
-								
-
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>                      
+                    
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

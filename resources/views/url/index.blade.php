@@ -58,6 +58,7 @@
 						<label for="id_select"  class="control-label col-md-4  requiredField">Url Image<span class="asteriskField">*</span> </label>
 						<div class="controls col-md-8 "  style="margin-bottom: 10px">
 						{!! Form::file('lnkImg',array('class' => 'form-control-file', 'id'=>'lnkImg')); !!}
+						<i> Image size should be 536x362 pixel </i>
 						</div>						
 					</div>
 						<div id="div_id_select" class="form-group required">

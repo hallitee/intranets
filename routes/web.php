@@ -20,7 +20,7 @@ Route::get('config', function(){
 echo "success";
 })->name('gadmin')->middleware('auth', 'admin');
 Route::get('url/list', function(){
-$l = link::paginate(5);
+$l = link::with('dept')->paginate(5);
 return view('url.list')->with(['url'=>$l]);
 //return View::make('url.listings')
 })->name('edit')->middleware('auth', 'admin');
