@@ -55,6 +55,17 @@
 											</li>						
 									 </ul>
                                 </li>
+								<li>
+                                    <a href="#">Advert Image<span class="fa arrow"></span></a>
+									    								 <ul class="nav nav-third-level">
+											<li>
+											<a href="{{route('config.create')}}">Add Adverts</a>
+											</li>		
+											<li>
+											<a href="{{route('config.index')}}">Manage Adverts</a>
+											</li>						
+									 </ul>
+                                </li>								
                             </ul>
                             <!-- /.nav-second-level -->
 							

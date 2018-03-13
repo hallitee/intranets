@@ -40,6 +40,6 @@
  
             </div> <!-- /.panel default -->  
 
-            </div>
+   
 
 		 @endsection

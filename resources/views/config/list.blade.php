@@ -4,7 +4,7 @@
             <div class="col-md-12">
              <div class="panel panel-heading">
 			
-			 <h2>Manage Companies</h2>
+			 <h2>Manage Config</h2>
 
             </div>
         <div class="col-md-12">
@@ -13,7 +13,7 @@
 
                 <h4 class="panel-title">
               
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-book"> </span> Company List</a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-book"> </span> Config List</a>
  
                 </h4>
 
@@ -29,7 +29,8 @@
 
 				<div class="row">
 <div class="col-md-12">
-@include('comp.listings')
+@include('config.listings')
+
 </div> <!-- /column -->
 				</div> <!-- /row -->
                 </div> <!-- /Panel Body Close -->
@@ -39,6 +40,5 @@
         </div> <!-- /col-md-12 -->
  
             </div> <!-- /.panel default -->  
-
 
 		 @endsection

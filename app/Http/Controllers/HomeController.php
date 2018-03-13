@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\link;
+use App\config;
 use App\visitlog;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+		$con =  config::find(1);
 		$ip = \Request::ip();	
 		if(Auth::guest()){
 		$l  = link::where('dept_id', 0)->get();
@@ -38,6 +40,6 @@ class HomeController extends Controller
 		$ud = Auth::user();
 		$ld = link::where('dept_id', $ud->dept_id)->get();
 		}
-        return view('index')->with(['links'=>$l,'dept' => $ld, 'mostv'=>$mv]);
+        return view('index')->with(['links'=>$l,'dept' => $ld, 'mostv'=>$mv, 'con'=>$con]);
     }
 }

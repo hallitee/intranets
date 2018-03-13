@@ -78,8 +78,6 @@
             </div> <!-- /.panel default -->
         </div> <!-- /col-md-12 -->
  
-            </div> <!-- /.panel default -->  
-
-            </div>
+    
 
 		 @endsection

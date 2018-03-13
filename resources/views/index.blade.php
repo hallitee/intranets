@@ -89,13 +89,13 @@
 
                 <h4 class="panel-title">
 
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-log-in "></span>  <u>Department</u></a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-log-in "></span>  <u>Department</u></a>
  
                 </h4>
 
              </div> <!-- /.panel heading -->
 
-            <div id="collapseTwo" class="panel-collapse collapse in">
+            <div id="collapseThree" class="panel-collapse collapse in">
 
             <div class="panel-body">
 @foreach($dept->chunk(3) as $chunk)	

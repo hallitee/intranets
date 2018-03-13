@@ -128,7 +128,8 @@ html {
         <div class="col-lg-2 col-md-2 col-xs-2 sideDiv">
 		@section('sideDivl')
 		@show
-		<img src="{{asset("uploads/soklin.jpg")}}" class="img-responsive" width="255" height="450">
+		<img src="{{asset("uploads/".$con->leftImg)}}" class="img-fluid float-left" width="110%">
+
 		</div>
 		
         <div class="col-lg-8 col-md-8 col-xs-8" id="midDiv">
@@ -142,13 +143,9 @@ html {
         <div class="col-lg-2 col-md-2 col-xs-2 sideDiv">
 		@section('sideDivl')
 		@show	
-		
-
-		<img src="{{asset("uploads/sup2.jpg")}}" class="img-responsive" width="255" height="450">
-       
-				
-              
-			
+		@if($con->rightImg)
+		<img src="{{asset("uploads/".$con->rightImg)}}" class="img-fluid float-right" width="100%">	
+		@endif
 		</div>		
 		</div> <!-- /.row -->
         <!-- /#page-wrapper -->

@@ -14,11 +14,7 @@ use App\company;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('config', function(){
- return view('admin.index');
-//Browsershot::html('Foo')->setIncludePath('C:\Users\Taofik\Downloads');
-echo "success";
-})->name('gadmin')->middleware('auth', 'admin');
+
 Route::get('url/list', function(){
 $l = link::with('dept')->paginate(5);
 return view('url.list')->with(['url'=>$l]);
@@ -35,6 +31,7 @@ Route::resource('url', 'linksController', ['parameters' => [
 ]]);
 Route::resource('loc', 'locationController', ['parameters'=>['loc'=>'id']]);
 Route::resource('comp', 'companyController', ['parameters'=>['comp'=>'id']]);
+Route::resource('config', 'configController', ['parameters'=>['config'=>'id']]);
 Route::resource('dept', 'departmentController', ['parameters'=>['dept'=>'id']]);
 Route::resource('user', 'userController', ['parameters'=>['user'=>'id']]);
 Route::get('/home', 'HomeController@index')->name('home');
