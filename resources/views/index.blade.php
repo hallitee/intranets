@@ -61,7 +61,7 @@
 	@foreach($chunk as $link)
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <div class="thumbnail">
-				 <a href="{{URL::to('url/'.$link->id)}}" data-placement="right" data-html="true" data-toggle="tooltip" title="{{ $link->name }} <br> {{$link->url}}">
+				 <a href="{{URL::to('url/'.$link->id)}}" data-placement="top" data-html="true" data-toggle="tooltip" title="{{ $link->name }} <br> {{$link->url}}">
                     <img src="{{asset("uploads/".$link->img1)}}" class="img-responsive" width="450" height="150">
                     <div class="caption" >
                         <h5>{{$link->name}}</h5>
@@ -104,7 +104,7 @@
 	@foreach($chunk as $link)
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <div class="thumbnail">
-				 <a href="{{URL::to('url/'.$link->id)}}" data-placement="right" data-html="true" data-toggle="tooltip" title="{{ $link->name }} <br> {{$link->url}}">
+				 <a href="{{URL::to('url/'.$link->id)}}" data-placement="top" data-html="true" data-toggle="tooltip" title="{{ $link->name }} <br> {{$link->url}}">
                     <img src="{{asset("uploads/".$link->img1)}}" class="img-responsive" width="450" height="150">
                     <div class="caption" >
                         <h5>{{$link->name}}</h5>

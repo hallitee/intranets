@@ -53,6 +53,7 @@ html {
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset("/bootstrap/js/jquery-2.2.4.min.js")}}"></script>
 	<script src="{{asset("/bootstrap/js/bootstrap.min.js")}}"></script>
+	<link href="{{asset("/bootstrap/css/animate.css")}}" rel="stylesheet">
     <link href="{{asset("/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="print" href="{{asset("/vendor/bootstrap/css/print.css")}}"> 
     <!-- MetisMenu CSS -->

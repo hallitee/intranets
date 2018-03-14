@@ -41,6 +41,8 @@ loadDept();
 	var $doc;
 	var $data;
 	var $loc, $wType, $excel;
+	var effect = ["flash", "pulse", "rubberBand" , "bounce", "shake", "swing", "wobble", "jello"]; 
+	var randonIndex;
 	var rec_qty = [];
       var i=1;
 	  var comp = ["GSNL", "NPRNL", "ESRNL"];
@@ -137,6 +139,16 @@ $("#printType").change(function(){
 			}
 			
 	 });
+	 $(".thumbnail").on("mouseenter", function(){
+	randomIndex = Math.floor(Math.random() * effect.length);  
+		$(this).addClass("animated "+effect[randomIndex]);
+		
+		console.log("Added  "+randomIndex);
+	  });  
+	 $(".thumbnail").on("mouseleave", function(){
+		$(this).removeClass("animated "+effect[randomIndex]);
+				console.log("Removed  "+randomIndex);
+	  });
 $("#deliveredTo").on("focus mouseover", function(){
 			$sentTo = $("#sentTosel").val();
 
