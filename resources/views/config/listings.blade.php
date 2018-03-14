@@ -15,8 +15,8 @@
     <tr>
       <th scope="row">{{ $loop->iteration}}</th>
       <td>{{ $l->appName }}</td>
-	<td><div class="thumbnail"><img src="{{asset("uploads/".$l->leftImg)}}" alt="{{$l->name}}" width="50" height="50"> </div></td>     
-      <td><div class="thumbnail"><img src="{{asset("uploads/".$l->rightImg)}}" alt="{{$l->name}}" width="50" height="50"> </div></td>     
+	<td><img src="{{asset("uploads/".$l->leftImg)}}" alt="{{$l->name}}" width="50" height="50"> </td>     
+      <td><img src="{{asset("uploads/".$l->rightImg)}}" alt="{{$l->name}}" width="50" height="50"></td>     
       <td><a href="{{ route('config.edit', $l->id) }}"><u>Edit</u></a></td>
                
     </tr>
